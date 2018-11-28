@@ -1,0 +1,21 @@
+redis:
+  keys:
+    hotNewsKey: HOT-NEWS
+spring:
+  redis:
+    host: localhost
+    port: 6379
+    jedis:
+      pool:
+        max-active: 100
+        min-idle: 5
+  kafka:
+    bootstrap-servers: 47.98.116.157:9092
+    producer:
+      retries: 3
+      batch-size: 2
+      buffer-memory: 524288
+    consumer:
+      auto-offset-reset: earliest
+      enable-auto-commit: true
+      group-id: group

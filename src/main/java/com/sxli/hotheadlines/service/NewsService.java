@@ -1,0 +1,9 @@
+package com.sxli.hotheadlines.service;
+
+import java.util.List;
+
+public interface NewsService {
+
+    List<Long> hotNews();
+
+}
