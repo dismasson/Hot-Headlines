@@ -1,6 +1,7 @@
 package com.sxli.hotheadlines.consumer.receive;
 
 import com.sxli.hotheadlines.config.RedisKeyConfig;
+import com.sxli.hotheadlines.config.RedisValueConfig;
 import com.sxli.hotheadlines.consumer.PageViewInput;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.annotation.EnableBinding;
@@ -22,6 +23,9 @@ public class DefaultPageViewReceive {
     @Autowired
     private RedisKeyConfig redisKeyConfig;
 
+    @Autowired
+    private RedisValueConfig redisValueConfig;
+
     // 计算UV的脚本
     @Autowired
     private RedisScript UVScript;
@@ -37,10 +41,10 @@ public class DefaultPageViewReceive {
         // key = uv.头条新闻id
         String key = new StringBuilder("uv.").append(newsId).toString();
         // 包装key集合
-        List<String> keys = new ArrayList<>(1);
+        List<String> keys = new ArrayList<>(2);
         keys.add(key);
         keys.add(redisKeyConfig.getHotNewsKey());
         // 执行脚本
-        redisTemplate.execute(UVScript, keys, userId);
+        redisTemplate.execute(UVScript, keys, userId, newsId);
     }
 }

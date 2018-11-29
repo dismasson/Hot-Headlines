@@ -1,6 +1,9 @@
 redis:
   keys:
-    hotNewsKey: HOT-NEWS
+    hotNewsKey: DEFAULT-HOTNEWS
+    hotNewsMaxNumberKey: DEFAULT-MAXCOUNT-HOTNEWS
+  values:
+    hotNewsMaxNumberValue: 10
 spring:
   redis:
     host: localhost

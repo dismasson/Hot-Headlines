@@ -4,6 +4,6 @@ import java.util.List;
 
 public interface NewsService {
 
-    List<Long> hotNews();
+    List<String> hotNews();
 
 }

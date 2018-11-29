@@ -11,11 +11,21 @@ public class RedisKeyConfig {
 
     private String hotNewsKey;
 
+    private String hotNewsMaxNumberKey;
+
     public String getHotNewsKey() {
         return hotNewsKey;
     }
 
     public void setHotNewsKey(String hotNewsKey) {
         this.hotNewsKey = hotNewsKey;
+    }
+
+    public String getHotNewsMaxNumberKey() {
+        return hotNewsMaxNumberKey;
+    }
+
+    public void setHotNewsMaxNumberKey(String hotNewsMaxNumberKey) {
+        this.hotNewsMaxNumberKey = hotNewsMaxNumberKey;
     }
 }
